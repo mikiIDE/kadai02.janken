@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/janken2.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DotGothic16&display=swap" rel="stylesheet">
+    <title>じゃんけん</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <h1>じゃんけん</h1>
+    </header>
+
+    <div class="info">4回勝ってゴールを目指せっ</div>
+
+    <main>
+        <ul>
+            <li id="gu_btn">
+                <img src="img/guu.png" alt="じゃんけんグー">
+                <div class="user_choice">グー</div>
+            </li>
+            <li id="cho_btn">
+                <img src="img/choki.png" alt="じゃんけんチョキ">
+                <div class="user_choice">チョキ</div>
+            </li>
+            <li id="par_btn">
+                <img src="img/par.png" alt="じゃんけんパー">
+                <div class="user_choice">パー</div>
+            </li>
+        </ul>
+        <!-- 画像はイラストセンターより拝借
+   https://illustcenter.com/ -->
+
+        <div id="result">
+            <div id="pc_hands_img"><img src="img/demon.jpg" alt="モモンガのイラスト"></div>
+            <div id="pc_hands">「ジャンケンするぞっ」</div>
+            <div id="judgment_img"></div>
+            <div id="judgment"></div>
+        </div>
+        <div id="win_num"></div>
+        <div class="container">
+            <div class="chiikawa-fight-container">
+                <div class="chiikawa-fight"><img id="fight1" src="img/fight.webp" alt="戦う気のちいかわ"></div>
+                <div class="chiikawa-fight"><img id="fight2" src="img/fight.webp" alt="戦う気のちいかわ"></div>
+                <div class="chiikawa-fight"><img id="fight3" src="img/fight.webp" alt="戦う気のちいかわ"></div>
+                <div class="chiikawa-fight"><img id="fight4" src="img/fight.webp" alt="戦う気のちいかわ"></div>
+                <div class="chiikawa-fight"><img id="fight5" src="img/chiikawa-goal2.jpg"
+                        style="max-width: 150px; max-height: 80px; width: auto; height: auto" ;></div>
+            </div>
+            <div id="way">Start -------- 2 -------- 3 -------- 4 ------- Goal</div>
+        </div>
+        <button id="reset" value="リセット">RESET</button>
+    </main>
+
+
+    <footer></footer>
+    <script>
+        let count = 0;
+        //じゃんけん用のSCRIPT
+
+        // グーを押下した場合
+        $("#gu_btn").on("click", function () {
+            const r = Math.ceil(Math.random() * 3);
+            console.log(r); //id gu-btnをclickしたときに、何をするか？
+
+            if (r == 1) {
+                $("#pc_hands").html(''); //id pc_handsに文字を表示させる
+                $("#pc_hands_img").html('<img src="img/guu.png">');
+                $("#judgment_img").html('');
+                $("#judgment").html('あいこ');//id judgmentに文字を表示させる（この場合はあいこ！）
+            } else if (r == 2) {
+                $("#pc_hands").html('');
+                $("#pc_hands_img").html('<img src="img/choki.png">');
+                $('#judgment_img').html('');
+                $("#judgment").html('あなたの勝ち');
+                count++;
+                console.log(count);
+                if (count == 1) {
+                    $("#win_num").html("1勝目");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "block");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "none");
+                } else if (count == 2) {
+                    $("#win_num").html("2勝目");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "block");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "none");
+                } else if (count == 3) {
+                    $("#win_num").html("リーチ！");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "block");
+                    $("#fight5").css("display", "none");
+                } else if (count == 4) {
+                    $("#win_num").html("ゴール！！");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "block");
+                }
+            } else {
+                $("#pc_hands").html('');
+                $("#pc_hands_img").html('<img src="img/par.png">');
+                $('#judgment_img').html('');
+                $("#judgment").html('あなたの負け');
+            }
+        });
+
+
+        // チョキを押下した場合
+        $("#cho_btn").on("click", function () {
+            const r = Math.ceil(Math.random() * 3);
+            console.log(r); //id cho-btnをclickしたときに、何をするか？
+
+            if (r == 1) {
+                $("#pc_hands").html(''); //id pc_handsに文字を表示させる
+                $("#pc_hands_img").html('<img src="img/guu.png">');
+                $('#judgment_img').html('');
+                $("#judgment").html('あなたの負け');
+            } else if (r == 2) {
+                $("#pc_hands").html('');
+                $("#pc_hands_img").html('<img src="img/choki.png">');
+                $("#judgment_img").html('');
+                $("#judgment").html('あいこ');
+            } else {
+                $("#pc_hands").html('');
+                $("#pc_hands_img").html('<img src="img/par.png">');
+                $('#judgment_img').html('');
+                $("#judgment").html('あなたの勝ち');
+                count++;
+                console.log(count);
+                if (count == 1) {
+                    $("#win_num").html("1勝目");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "block");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "none");
+                } else if (count == 2) {
+                    $("#win_num").html("2勝目");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "block");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "none");
+                } else if (count == 3) {
+                    $("#win_num").html("リーチ！");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "block");
+                    $("#fight5").css("display", "none");
+                } else if (count == 4) {
+                    $("#win_num").html("ゴール！！");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "block");
+                }
+            }
+        });
+
+
+        // パーを押下した場合
+        $("#par_btn").on("click", function () {
+            const r = Math.ceil(Math.random() * 3);
+            console.log(r); //id par_btnをclickしたときに、何をするか？
+
+            if (r == 1) {
+                $("#pc_hands").html(''); //id pc_handsに文字を表示させる
+                $("#pc_hands_img").html('<img src="img/guu.png">');
+                $('#judgment_img').html('');
+                $("#judgment").html('あなたの勝ち');
+                count++;
+                console.log(count);
+                if (count == 1) {
+                    $("#win_num").html("1勝目");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "block");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "none");
+                } else if (count == 2) {
+                    $("#win_num").html("2勝目");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "block");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "none");
+                } else if (count == 3) {
+                    $("#win_num").html("リーチ！");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "block");
+                    $("#fight5").css("display", "none");
+                } else if (count == 4) {
+                    $("#win_num").html("ゴール！！");
+                    $("#win_num").html("ゴール！！");
+                    $("#fight1").css("display", "none");
+                    $("#fight2").css("display", "none");
+                    $("#fight3").css("display", "none");
+                    $("#fight4").css("display", "none");
+                    $("#fight5").css("display", "block");
+                }
+            } else if (r == 2) {
+                $("#pc_hands").html('');
+                $("#pc_hands_img").html('<img src="img/choki.png">');
+                $('#judgment_img').html('');
+                $("#judgment").html('あなたの負け');
+            } else {
+                $("#pc_hands").html('');
+                $("#pc_hands_img").html('<img src="img/par.png">');
+                $("#judgment_img").html('');
+                $("#judgment").html('あいこ');
+            }
+        });
+
+        //#judgmentに「あなたの勝ち」と表示された場合
+        //countして、nの場合はnを非表示にしn+1を表示させる？
+        //judgmentの中身を直接カウントできないらしい→getElementByIdを使う
+
+        // let count = 0;
+        // let judgmentText = document.getElementById('judgment').textContent;
+
+        // if (judgmentText === 'あなたの勝ち') {
+        //     count++;  
+        // }
+        //↑countが増えなかったのでコメントアウト
+        //チューターのりょーさんに相談して、勝ちのパターンへ直接count++をくっつけた
+
+
+
+
+        // リセットボタンを押下した場合
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("reset").addEventListener("click", function () {
+                window.location.reload();
+            })
+        });
+
+    </script>
+</body>
+
+</html>

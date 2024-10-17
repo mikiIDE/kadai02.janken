@@ -1,0 +1,89 @@
+body {
+    font-family: "DotGothic16", sans-serif;
+    background-color: bisque
+}
+
+
+html {
+    font-size: 100%;
+}
+
+#header {
+    max-width: 960px;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 30px auto 20px auto;
+}
+
+.info {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+
+}
+
+ul img {
+    width: 150px;
+    height: auto;
+}
+
+.user_choice {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#result img {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    margin: auto;
+    border-radius: 60%;
+    margin-top: 20px;
+}
+
+#pc_hands,#judgment {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#judgment{
+    font-weight: bold;
+}
+
+button {
+    font-size: 1.3rem;
+    margin: 30px auto;
+    width: 100px;
+    height: auto;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    background-color: #eed5f3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* 背景色の変化を滑らかに */
+  }
+
+  #reset:hover {
+    background-color: #000000;
+    color: white;
+  }

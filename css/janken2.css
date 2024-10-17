@@ -1,0 +1,170 @@
+body {
+    font-family: "DotGothic16", sans-serif;
+    background-color: bisque
+}
+
+
+html {
+    font-size: 100%;
+}
+
+#header {
+    max-width: 960px;
+    display: flex;
+    justify-content: center;
+    font-size: 3rem;
+    margin: 30px auto 20px auto;
+}
+
+.info {
+    text-align: center;
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+}
+
+ul {
+    display: flex;
+    justify-content: center;
+    margin: 50px auto;
+
+}
+
+ul img {
+    width: 150px;
+    height: auto;
+}
+
+.user_choice {
+    text-align: center;
+    font-size: 1.3rem;
+}
+
+#win_num {
+    display: flex;
+    justify-content: center;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#result {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#result img {
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    margin: auto;
+    border-radius: 60%;
+    margin-top: 20px;
+}
+
+#pc_hands,
+#judgment {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+#judgment {
+    font-weight: bold;
+}
+
+button {
+    font-size: 1.3rem;
+    margin: 30px auto;
+    width: 100px;
+    height: auto;
+}
+
+.container {
+    /* display:flex;
+    justify-content: center;
+    text-align: center; */
+    background-color: white;
+    width: 800px;
+    height: 150px;
+    margin: 20px auto;
+    font-size: 2rem;
+}
+
+.chiikawa-fight-container {
+    display: flex;
+    padding-top: 20px;
+}
+
+#fight1 {
+    width: 130px;
+    height: auto;
+    margin-left: 22px;
+
+}
+
+#fight2 {
+    display:none;
+    width: 130px;
+    height: auto;
+    margin-left: 200px;
+
+}
+
+#fight3{
+    display:none;
+    width: 130px;
+    height: auto;
+    margin-left: 355px;
+
+}
+
+#fight4 {
+    display:none;
+    width: 130px;
+    height: auto;
+    margin-left: 508px;
+
+}
+
+#fight5 {
+    display:none;
+    margin-left: 705px;
+}
+
+/* #chiikawa-fight5 img{
+    width: 150px;
+    height:auto;
+    object-fit: cover;
+
+} */
+
+#way {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+#reset {
+    display: flex;
+    justify-content: center;
+    background-color: #eed5f3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    /* 背景色の変化を滑らかにするため */
+}
+
+#reset:hover {
+    background-color: #000000;
+    color: white;
+}
+
+/* レスポンシブ用 */
+@media screen and (max-width:820px) {
+    .container {
+        display: none;
+    }
+}

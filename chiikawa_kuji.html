@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <script src="js/jquery-2.1.3.min.js"></script>
+    <link rel="stylesheet" href="css/kuji.css">
+    <link rel="stylesheet" href="css/reset.css">
+    <title>じゃんけんバトル or ちいかわスロット</title>
+</head>
+
+<body>
+
+    <header id="header">
+        <h1>ちいかわスロット</h1>
+    </header>
+
+    <main>
+        <div class="slot">
+            <div id="usagi"><img src="img/animalface_usagi.png" alt="うさぎのイラスト">
+                <button id="usagi_btn">STOP</button>
+            </div>
+            <div id="hachiware"><img src="img/animal_smile_neko.png" alt="ハチワレのイラスト">
+                <button id="hachiware_btn">STOP</button>
+            </div>
+            <div id="chiikawa"><img src="img/animal_character_hamster.png" alt="ちいかわのイラスト">
+                <button id ="chiikawa_btn">STOP</button></div>
+        </div>
+        <button id ="start">START</button>
+        <button id ="reset">RESET</button>
+    </main>
+
+    <footer></footer>
+    <script>
+        //じゃんけん用のSCRIPTを書いてください
+
+        // グーを押下した場合
+        $("#gu_btn").on("click", function () {
+            const r = Math.ceil(Math.random() * 3);
+            console.log(r); //id gu-btnをclickしたときに、何をするか？
+
+            if (r == 1) {
+                $("#pc_hands").html('グー'); //id pc_handsに文字を表示させる
+                $("#judgment").html('あいこ');//id judgmentに文字を表示させる（この場合はあいこ！）
+            } else if (r == 2) {
+                $("#pc_hands").html('チョキ');
+                $("#judgment").html('あなたの勝ち');
+            } else {
+                $("#pc_hands").html('パー');
+                $("#judgment").html('あなたの負け');
+            }
+        });
+
+        // チョキを押下した場合
+        $("#cho_btn").on("click", function () {
+            const r = Math.ceil(Math.random() * 3);
+            console.log(r); //id cho-btnをclickしたときに、何をするか？
+
+            if (r == 1) {
+                $("#pc_hands").html('グー'); //id pc_handsに文字を表示させる
+                $("#judgment").html('あなたの負け');
+            } else if (r == 2) {
+                $("#pc_hands").html('チョキ');
+                $("#judgment").html('あいこ');
+            } else {
+                $("#pc_hands").html('パー');
+                $("#judgment").html('あなたの勝ち');
+            }
+        });
+
+
+        // パーを押下した場合
+        $("#par_btn").on("click", function () {
+            const r = Math.ceil(Math.random() * 3);
+            console.log(r); //id par_btnをclickしたときに、何をするか？
+
+            if (r == 1) {
+                $("#pc_hands").html('グー'); //id pc_handsに文字を表示させる
+                $("#judgment").html('あなたの勝ち');
+            } else if (r == 2) {
+                $("#pc_hands").html('チョキ');
+                $("#judgment").html('あなたの負け');
+            } else {
+                $("#pc_hands").html('パー');
+                $("#judgment").html('あいこ');
+            }
+        });
+
+        // リセットボタンを押下した場合
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById("reset").addEventListener("click", function () {
+                window.location.reload();
+            })
+        });
+
+    </script>
+</body>
+
+</html>
